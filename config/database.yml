@@ -32,7 +32,6 @@ development:
   pool: 5
   timeout: 5000
 
-
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
@@ -88,7 +87,7 @@ test:
 #
 production:
   <<: *default
-  username: vfytk
+　username: vfytk
 pldveqbly
   passworkd: 4b6a3eceddd2e5f81f1f4fc7783c9396
 1d44eeafe22d845d51d7ca7421517da0
@@ -97,6 +96,6 @@ pldveqbly
   port: 5432
   database: ddmpnem
 4e04ld9
-  dapter: postgresql
+  adapter: postgresql
   encoding: unicode
   pool: 5
