@@ -88,6 +88,15 @@ test:
 #
 production:
   <<: *default
-  database: new_project_production
-  username: new_project
-  password: <%= ENV['NEW_PROJECT_DATABASE_PASSWORD'] %>
+  username: vfytk
+pldveqbly
+  passworkd: 4b6a3eceddd2e5f81f1f4fc7783c9396
+1d44eeafe22d845d51d7ca7421517da0
+  hostname: ec2-54-83
+-4-76.compute-1.amazonaws.com
+  port: 5432
+  database: ddmpnem
+4e04ld9
+  dapter: postgresql
+  encoding: unicode
+  pool: 5
