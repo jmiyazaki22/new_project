@@ -87,15 +87,11 @@ test:
 #
 production:
   <<: *default
-　username: vfytk
-pldveqbly
-  passworkd: 4b6a3eceddd2e5f81f1f4fc7783c9396
-1d44eeafe22d845d51d7ca7421517da0
-  hostname: ec2-54-83
--4-76.compute-1.amazonaws.com
+  username: vfytkpldveqbly
+  password: 4b6a3eceddd2e5f81f1f4fc7783c93961d44eeafe22d845d51d7ca7421517da0
+  hostname: ec2-54-83-4-76.compute-1.amazonaws.com
   port: 5432
-  database: ddmpnem
-4e04ld9
+  database: ddmpnem4e04ld9
   adapter: postgresql
   encoding: unicode
   pool: 5
