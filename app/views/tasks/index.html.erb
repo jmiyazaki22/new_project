@@ -1,13 +1,13 @@
 <div class="main">
   <div class="task-form">
+    <p>タスクを追加</p>
     <%= form_tag("/tasks/create") do %>
-      <p>タスクを追加</p>
       <input class="task-input" name="content" value="<%= @task.content %>">
-      <p class="task-radio-button">
+      <div class="task-radio-button">
         <input type="radio" name="date" value="<%= Date.today %>">今日やる
         <input type="radio" name="date" value="<%= Date.tomorrow %>">明日やる
         <input type="radio" name="date" value="<%= nil %>">未定
-      </p>
+      </div>
       <input class="task-add-button" type="submit" value="追加">
     <% end %>
   </div>
