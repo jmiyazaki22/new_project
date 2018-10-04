@@ -62,7 +62,7 @@ class UsersController < ApplicationController
     if @user
       session[:user_id] = @user.id
       flash[:notice] = "ログインしました"
-      redirect_to("/posts/index")
+      redirect_to("/tasks/index")
     else
       @error_message = "メールアドレスまたはパスワードが間違っています"
       @email = params[:email]
@@ -80,12 +80,8 @@ class UsersController < ApplicationController
   def ensure_correct_user
     if @current_user.id != params[:id].to_i
       flash[:notice] = "権限がありません"
-      redirect_to("/posts/index")
+      redirect_to("/tasks/index")
     end
   end
 
-  def likes
-    @user = User.find_by(id: params[:id])
-    @likes = Like.where(user_id: @current_user.id)
-  end
 end

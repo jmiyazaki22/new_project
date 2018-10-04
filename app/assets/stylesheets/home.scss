@@ -38,7 +38,7 @@ form input[type="submit"] {
 /* 共通レイアウト ================================ */
 body {
   color: #2d3133;
-  background-color: #3ecdc6;
+  background-color: #007BF9;
   margin: 0;
   min-height: 1vh;
 }
@@ -81,6 +81,11 @@ header {
   font-size: 22px;
 }
 
+.logopic{
+  width: 30%;
+  height: auto;
+  vertical-align: middle;
+}
 .header-menus {
   float: right;
   padding-right: 20px;
@@ -123,11 +128,11 @@ header {
   height: auto;
   min-height: 100%;
   color: white;
-  background-color: #3ecdc6;
+  background-color: #007BF9;
   background-repeat: no-repeat;
   background-position: center 50%;
   background-size: cover;
-  background-image: url("/top.jpg");
+  background-image: url("/background_deepsea.jpg");
 }
 
 .top-message {
@@ -147,24 +152,26 @@ header {
 }
 
 /* about ================================ */
-.about-main {
-  padding: 180px 8% 0;
-  color: white;
-}
 
 .about-main h2 {
+  padding: 180px 4% 0;
+  color: white;
   font-size: 64px;
   font-weight: 500;
   line-height: 1.4;
+  left: 0px;
 }
 
 .about-main p {
+  padding: 0 8% 0;
+  color: white;
   font-weight: 200;
   font-size: 20px;
 }
 
 .about-img {
-  width: 84%;
+  width: 50px;
+
 }
 
 /* フォーム================================ */
