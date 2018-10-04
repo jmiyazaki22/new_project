@@ -1,4 +1,4 @@
-<div class="main tasks-index">
+<div class="main">
   <div class="task-form task-form-body">
     <%= form_tag("/tasks/create") do %>
       <p>タスクを追加</p>
@@ -14,8 +14,10 @@
 
   <div class="task-area">
     <div class="tasks-container">
-      <p class="title">インボックス</p>
-        <% @tasks_inbox.each do |task| %>
+      <p class="title">
+        インボックス
+      </p>
+      <% @tasks_inbox.each do |task| %>
         <div class="tasks-index-item">
           <div class="task-left">
               <%= link_to("/tasks/#{task.id}/destroy", :method => "post", :style => "text-decoration: none") do %>
@@ -26,12 +28,14 @@
             <%= task.content %>
           </div>
         </div>
-        <% end %>
+      <% end %>
     </div>
 
     <div class="tasks-container">
-      <p class="title">今日やること</p>
-        <% @tasks_today.each do |task| %>
+      <p class="title">
+        今日やること
+      </p>
+      <% @tasks_today.each do |task| %>
         <div class="tasks-index-item">
           <div class="task-left">
               <%= link_to("/tasks/#{task.id}/destroy", :method => "post", :style => "text-decoration: none") do %>
@@ -42,22 +46,24 @@
             <%= task.content %>
           </div>
         </div>
-        <% end %>
+      <% end %>
     </div>
 
     <div class="tasks-container">
-      <p class="title">明日やること</p>
+      <p class="title">
+        明日やること
+      </p>
       <% @tasks_tomorrow.each do |task| %>
-      <div class="tasks-index-item">
-        <div class="task-left">
-          <%= link_to("/tasks/#{task.id}/destroy", :method => "post", :style => "text-decoration: none") do %>
-            <p>×</p>
-          <% end %>
+        <div class="tasks-index-item">
+          <div class="task-left">
+            <%= link_to("/tasks/#{task.id}/destroy", :method => "post", :style => "text-decoration: none") do %>
+              <p>×</p>
+            <% end %>
+          </div>
+          <div class="task-right">
+            <%= task.content %>
+          </div>
         </div>
-        <div class="task-right">
-          <%= task.content %>
-        </div>
-      </div>
       <% end %>
     </div>
   </div>
