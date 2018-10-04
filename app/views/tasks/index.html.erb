@@ -4,59 +4,61 @@
       <p>タスクを追加</p>
       <input class="task-input input_content" name="content" value="<%= @task.content %>">
       <p class="task-radio_button">
-      <input type="radio" name="date" value= "<%= Date.today%>">今日やる
-      <input type="radio" name="date" value= "<%= Date.tomorrow%>">明日やる
-      <input type="radio" name="date" value= "<%= nil%>">未定
+        <input type="radio" name="date" value= "<%= Date.today%>">今日やる
+        <input type="radio" name="date" value= "<%= Date.tomorrow%>">明日やる
+        <input type="radio" name="date" value= "<%= nil%>">未定
       </p>
       <input class="task-add-button" type="submit" value="追加">
     <% end %>
   </div>
-    <div class="task-area">
-      <div class="tasks-container">
-        <p class="title">インボックス</p>
-          <% @tasks_inbox.each do |task| %>
-          <div class="tasks-index-item">
-            <div class="task-left">
-                <%= link_to("/tasks/#{task.id}/destroy", :method => "post", :style => "text-decoration: none") do %>
-                  <p>×</p>
-                <% end %>
-            </div>
-            <div class="task-right">
-              <%= task.content %>
-            </div>
+
+  <div class="task-area">
+    <div class="tasks-container">
+      <p class="title">インボックス</p>
+        <% @tasks_inbox.each do |task| %>
+        <div class="tasks-index-item">
+          <div class="task-left">
+              <%= link_to("/tasks/#{task.id}/destroy", :method => "post", :style => "text-decoration: none") do %>
+                <p>×</p>
+              <% end %>
           </div>
-          <% end %>
-      </div>
-      <div class="tasks-container">
-        <p class="title">今日やること</p>
-          <% @tasks_today.each do |task| %>
-          <div class="tasks-index-item">
-            <div class="task-left">
-                <%= link_to("/tasks/#{task.id}/destroy", :method => "post", :style => "text-decoration: none") do %>
-                  <p>×</p>
-                <% end %>
-            </div>
-            <div class="task-right">
-              <%= task.content %>
-            </div>
+          <div class="task-right">
+            <%= task.content %>
           </div>
-          <% end %>
-      </div>
-      <div class="tasks-container">
-        <p class="title">明日やること</p>
-          <% @tasks_tomorrow.each do |task| %>
-          <div class="tasks-index-item">
-            <div class="task-left">
-                <%= link_to("/tasks/#{task.id}/destroy", :method => "post", :style => "text-decoration: none") do %>
-                  <p>×</p>
-                <% end %>
-            </div>
-            <div class="task-right">
-              <%= task.content %>
-            </div>
+        </div>
+        <% end %>
+    </div>
+
+    <div class="tasks-container">
+      <p class="title">今日やること</p>
+        <% @tasks_today.each do |task| %>
+        <div class="tasks-index-item">
+          <div class="task-left">
+              <%= link_to("/tasks/#{task.id}/destroy", :method => "post", :style => "text-decoration: none") do %>
+                <p>×</p>
+              <% end %>
           </div>
+          <div class="task-right">
+            <%= task.content %>
+          </div>
+        </div>
+        <% end %>
+    </div>
+
+    <div class="tasks-container">
+      <p class="title">明日やること</p>
+      <% @tasks_tomorrow.each do |task| %>
+      <div class="tasks-index-item">
+        <div class="task-left">
+          <%= link_to("/tasks/#{task.id}/destroy", :method => "post", :style => "text-decoration: none") do %>
+            <p>×</p>
           <% end %>
+        </div>
+        <div class="task-right">
+          <%= task.content %>
+        </div>
       </div>
+      <% end %>
     </div>
   </div>
 </div>
