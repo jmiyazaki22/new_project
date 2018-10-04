@@ -9,7 +9,7 @@
           </div>
         <% end %>
 
-        <%= form_tag("/users/create") do%>
+        <%= form_tag("/users/create", :method => "post") do%>
           <p>ユーザー名</p>
           <input name="name" value="<%= @user.name %>">
           <p>メールアドレス</p>
