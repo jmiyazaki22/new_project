@@ -1,22 +1,14 @@
 <div class="main">
   <div class="task-form">
-    <p>タスクを検索</p>
-    <%= form_tag tasks_index_path, :method => "get" do %>
-      <input class="task-input" name="search" value= <%= params[:search] %>>
-      <input class="task-add-button" type="submit" value="検索">
-    <% end %>
-  </div>
-x
-  <div class="task-form">
     <p>タスクを追加</p>
     <%= form_tag("/tasks/create", :method => "post") do%>
       <input class="task-input" name="content">
+        <input class="task-add-button" type="submit" value="追加">
       <div class="task-radio-button">
         <input type="radio" name="date" value="<%= Date.today %>">今日やる
         <input type="radio" name="date" value="<%= Date.tomorrow %>">明日やる
         <input type="radio" name="date" value="<%= nil %>">未定
       </div>
-      <input class="task-add-button" type="submit" value="追加">
     <% end %>
   </div>
 

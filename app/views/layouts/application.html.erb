@@ -1,4 +1,3 @@
-
 <html>
   <head>
     <title>Tasks</title>
@@ -37,6 +36,14 @@
           </li>
         <% end %>
       </ul>
+      <% if current_page?(:controller => 'tasks', :action => 'index') %>
+        <div class="search-form">
+          <%= form_tag tasks_index_path, :method => "get" do %>
+            <input class="search-input" name="search" value= <%= params[:search] %>>
+            <input class="search-button" type="submit" value="検索">
+          <% end %>
+        </div>
+      <% end %>
     </header>
 
     <% if flash[:notice] %>
