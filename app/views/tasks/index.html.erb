@@ -9,7 +9,7 @@
 x
   <div class="task-form">
     <p>タスクを追加</p>
-    <%= form_tag("/tasks/create") do %>
+    <%= form_tag("/tasks/create", :method => "post") do%>
       <input class="task-input" name="content">
       <div class="task-radio-button">
         <input type="radio" name="date" value="<%= Date.today %>">今日やる
