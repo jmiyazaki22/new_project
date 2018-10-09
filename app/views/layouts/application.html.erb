@@ -23,7 +23,7 @@
             <%= link_to(@current_user.name, "/users/#{@current_user.id}/edit") %>
           </li>
           <li>
-            <%= link_to("ログアウト", "/logout", {method: :post}) %>
+            <%= link_to("ログアウト", "/logout", :method => "post") %>
           </li>
         <% else %>
           <li>
@@ -48,8 +48,7 @@
     <%= yield %>
   </body>
   <script>
-    $( document ).ready(function() {
-      // メッセージを３秒後にフェードアウトする
+    $(document).ready(function() {
       $('#notice').fadeOut(2500);
   });
   </script>

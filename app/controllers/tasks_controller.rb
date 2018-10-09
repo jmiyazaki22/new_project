@@ -2,18 +2,25 @@ class TasksController < ApplicationController
 before_action :authenticate_user
 
   def index
-    @tasks_inbox = Task.where(
-      user_id: @current_user.id,
-      when_to: nil
-    )
-    @tasks_today = Task.where(
-      user_id: @current_user.id,
-      when_to: Date.today
-    )
-    @tasks_tomorrow = Task.where(
-      user_id: @current_user.id,
-      when_to: Date.tomorrow
-    )
+      @tasks_inbox = Task.where(
+        user_id: @current_user.id,
+        when_to: nil
+      )
+      @tasks_today = Task.where(
+        user_id: @current_user.id,
+        when_to: Date.today
+      )
+      @tasks_tomorrow = Task.where(
+        user_id: @current_user.id,
+        when_to: Date.tomorrow
+      )
+    @search = params[:search]
+    if @search
+        @tasks_inbox = @tasks_inbox.where("content like ?","%#{@search}%")
+        @tasks_today = @tasks_today.where("content like ?","%#{@search}%")
+        @tasks_tomorrow = @tasks_tomorrow.where("content like ?","%#{@search}%")
+    else
+    end
   end
 
   def destroy
