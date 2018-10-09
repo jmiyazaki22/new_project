@@ -14,7 +14,6 @@ before_action :authenticate_user
       user_id: @current_user.id,
       when_to: Date.tomorrow
     )
-    @task = Task.new
   end
 
   def destroy
