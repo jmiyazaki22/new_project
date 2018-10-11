@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post "tasks/:id/edit" => "tasks#edit"
   post "tasks/create" => "tasks#create"
   post "tasks/:id/destroy" => "tasks#destroy"
   get "tasks/index" => "tasks#index"

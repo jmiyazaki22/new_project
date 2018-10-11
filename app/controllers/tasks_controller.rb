@@ -3,9 +3,9 @@ before_action :authenticate_user
 
   def index
       @tasks_inbox = Task.where(
-        user_id: @current_user.id,
-        when_to: nil
-      )
+        user_id: @current_user.id).where.not(
+        when_to: [Date.today, Date.tomorrow]
+        )
       @tasks_today = Task.where(
         user_id: @current_user.id,
         when_to: Date.today
@@ -39,8 +39,23 @@ before_action :authenticate_user
       user_id: @current_user.id,
       when_to: params[:date]
     )
+    if @task.when_to == nil
+      @task.when_to = Date.new(1000, 01, 01)
+    end
     if @task.save
       flash[:notice] = "「#{@task.content}」を追加しました"
+      redirect_to("/tasks/index")
+    else
+      render("tasks/index")
+    end
+  end
+
+  def edit
+    @task = Task.find_by(id: params[:id])
+    @task.content = params[:content]
+    @task.when_to = params[:date]
+    if @task.save
+      flash[:notice] = "「#{@task.content}」を編集しました"
       redirect_to("/tasks/index")
     else
       render("tasks/index")

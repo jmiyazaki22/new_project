@@ -7,35 +7,59 @@
       <div class="task-radio-button">
         <input type="radio" name="date" value="<%= Date.today %>">今日やる
         <input type="radio" name="date" value="<%= Date.tomorrow %>">明日やる
-        <input type="radio" name="date" value="<%= nil %>">未定
+        <input type="radio" name="date" value="<%= Date.new(1000, 01, 01) %>">未定
       </div>
     <% end %>
   </div>
-
   <div class="tasks-area">
     <div class="tasks-container">
       <p class="title">
-        インボックス
+        それ以外
       </p>
       <% @tasks_inbox.each do |task| %>
+        <div class="task-edit">
+          <%= form_tag("/tasks/#{task.id}/edit", :method => "post") do%>
+            <input class="task-edit-input" name="content" value= "<%= task.content %>">
+            <select class="task-edit-when_to" name="date">
+              <option name="date" value="<%= Date.today %>">今日やる</option>
+              <option name="date" value="<%= Date.tomorrow %>">明日やる</option>
+              <option name="date" value="<%= Date.new(1000, 01, 01) %>" selected>未定</option>
+            </select>
+            <input class="task-add-button_edit" type="submit" value="変更">
+            <div class="x-button">
+              <p>×</p>
+            </div>
+          <% end %>
+        </div>
         <div class="tasks-index-item">
           <div class="task-left">
               <%= link_to("/tasks/#{task.id}/destroy", :method => "post", :style => "text-decoration: none") do %>
                 <p>×</p>
               <% end %>
           </div>
-          <div class="task-right">
+          <div class="task-right" >
             <%= task.content %>
           </div>
         </div>
       <% end %>
     </div>
-
     <div class="tasks-container">
-      <p class="title">
-        今日やること
-      </p>
+      <p class="title">今日やること</p>
       <% @tasks_today.each do |task| %>
+        <div class="task-edit">
+          <%= form_tag("/tasks/#{task.id}/edit", :method => "post") do%>
+            <input class="task-edit-input" name="content" value= "<%= task.content =%>">
+            <select class="task-edit-when_to" name="date">
+              <option name="date" value="<%= Date.today %>" selected>今日やる</option>
+              <option name="date" value="<%= Date.tomorrow %>">明日やる</option>
+              <option name="date" value="<%= Date.new(1000, 01, 01) %>">未定</option>
+            </select>
+            <input class="task-add-button_edit" type="submit" value="変更">
+            <div class="x-button">
+              <p>×</p>
+            </div>
+          <% end %>
+        </div>
         <div class="tasks-index-item">
           <div class="task-left">
               <%= link_to("/tasks/#{task.id}/destroy", :method => "post", :style => "text-decoration: none") do %>
@@ -48,12 +72,25 @@
         </div>
       <% end %>
     </div>
-
     <div class="tasks-container">
       <p class="title">
         明日やること
       </p>
-      <% @tasks_tomorrow.each do |task| %>
+      <% @tasks_tomorrow.each_with_index do |task| %>
+        <div class="task-edit">
+          <%= form_tag("/tasks/#{task.id}/edit", :method => "post") do%>
+            <input class="task-edit-input" name="content" value= "<%= task.content %>">
+            <select class="task-edit-when_to" name="date">
+              <option name="date" value="<%= Date.today %>">今日やる</option>
+              <option name="date" value="<%= Date.tomorrow %>" selected>明日やる</option>
+              <option name="date" value="<%= Date.new(1000, 01, 01) %>">未定</option>
+            </select>
+            <input class="task-add-button_edit" type="submit" value="変更">
+            <div class="x-button">
+              <p>×</p>
+            </div>
+          <% end %>
+        </div>
         <div class="tasks-index-item">
           <div class="task-left">
             <%= link_to("/tasks/#{task.id}/destroy", :method => "post", :style => "text-decoration: none") do %>
@@ -68,3 +105,15 @@
     </div>
   </div>
 </div>
+<script>
+  $(".task-left").click(
+    function() {
+      $(this).parent().fadeOut();
+    });
+  $(".task-right").click(function() {
+    $(this).parent().prev().toggle();
+  });
+  $(".x-button").click(function() {
+    $(this).parent().parent().hide()
+  });
+</script>
