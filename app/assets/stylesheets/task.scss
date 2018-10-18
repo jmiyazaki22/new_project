@@ -85,15 +85,15 @@
 }
 
 .tasks-area {
-  width: 1260px;
+  width: 100%;
   min-height: 100%;
   margin: 10px auto;
 }
 
 .tasks-container {
-  width: 400px;
+  width: 32%;
   min-height: 600px;
-  margin: 10px 10px;
+  margin: 10px 0.66%;
   padding-left: 15px;
   padding-right: 15px;
   float: left;
@@ -111,7 +111,7 @@
 }
 
 .tasks-index-item {
-  width: 350px;
+  width: 95%;
   height: 30px;
   padding: 10px 30px;
   margin-bottom: 8px;
