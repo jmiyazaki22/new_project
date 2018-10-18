@@ -56,42 +56,49 @@
     });
     $("#tasks-container-inbox").on("click",".x-button", function() {
       $(this).parent().parent().hide();
+      $(this).parent().parent().next().show();
     });
     $("#tasks-container-inbox").on("click",".task-left", function() {
         $(this).parent().fadeOut();
       });
     $("#tasks-container-inbox").on("click",".task-right", function() {
       $(this).parent().prev().show();
+      $(this).parent().hide();
       var v = $(this).parent().prev().find(".task-edit-input").val();
       $(this).parent().prev().find(".task-edit-input").val("");
       $(this).parent().prev().find(".task-edit-input").focus().val(v);
     });
     $("#tasks-container-today").on("click",".x-button", function() {
       $(this).parent().parent().hide();
+      $(this).parent().parent().next().show();
     });
     $("#tasks-container-today").on("click",".task-left", function() {
         $(this).parent().fadeOut();
       });
     $("#tasks-container-today").on("click",".task-right", function() {
       $(this).parent().prev().show();
+      $(this).parent().hide();
       var v = $(this).parent().prev().find(".task-edit-input").val();
       $(this).parent().prev().find(".task-edit-input").val("");
       $(this).parent().prev().find(".task-edit-input").focus().val(v);
     });
     $("#tasks-container-today").on("click",".x-button", function() {
       $(this).parent().parent().hide();
+      $(this).parent().parent().next().show();
     });
     $("#tasks-container-tomorrow").on("click",".task-left", function() {
         $(this).parent().fadeOut();
       });
     $("#tasks-container-tomorrow").on("click",".task-right", function() {
       $(this).parent().prev().show();
+      $(this).parent().hide();
       var v = $(this).parent().prev().find(".task-edit-input").val();
       $(this).parent().prev().find(".task-edit-input").val("");
       $(this).parent().prev().find(".task-edit-input").focus().val(v);
     });
     $("#tasks-container-tomorrow").on("click",".x-button", function() {
       $(this).parent().parent().hide();
+      $(this).parent().parent().next().show();
     });
     </script>
 </html>

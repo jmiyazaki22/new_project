@@ -147,16 +147,17 @@
 }
 
 .task-edit {
-  width: 351px;
-  height: 31px;
-  padding: 0 22px;
-  position: absolute;
+  width: 95%;
+  height: 30.5px;
+  padding: 0 20px;
+  margin-bottom: 8px;
+  margin-left: auto;
+  margin-right: auto;
   background-color: white;
   overflow: hidden;
   border:0.5px solid #c1ced7;
   border-radius: 8px;
   box-shadow: 0 0 0 0.2px;
-  float: left;
   display: none;
 }
 
