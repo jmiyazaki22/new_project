@@ -1,10 +1,9 @@
 .search-form {
-  position: absolute;
   max-width: 300px;
   height: 64px;
-  margin: 0 0 0 850px;
-  padding: 15px 0;
+  padding: 15px 10px;
   float: right;
+  display: block
 }
 
 .search-input {
@@ -35,15 +34,6 @@
   float: left;
 }
 
-.task-area {
-  position: absolute;
-  top: 115px;
-  width: 100%;
-  height: auto;
-  min-height: 100%;
-  background-color: white;
-  border: 1px solid #c1ced7;
-}
 
 .task-form {
   max-width: 450px;
@@ -94,23 +84,36 @@
 }
 
 .tasks-area {
-  width: 100%;
-  padding: 0 15px;
+  position: absolute;
+  width: 1260px;
+  min-height: 100%;
+  top: 78%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  -o-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
 }
 
 .tasks-container {
   width: 400px;
-  margin: 10px 5px;
+  min-height: 600px;
+  margin: 10px 10px;
   padding-left: 15px;
   padding-right: 15px;
   float: left;
+  align-items: center;
+  border-radius: 5px;
+  // border: 2.0px solid #C1CED7;
+  // border-radius: 10px;
 }
 
 .title{
-  font-weight: 300;
-  margin: 15px 0 4px 0;
+  margin: 15px 0 20px 0;
   font-size: 20px;
-  color:  grey;
+  color:  #808085;
+  border-bottom: 1.5px solid #838388;
 }
 
 .tasks-index-item {
@@ -118,6 +121,8 @@
   height: 30px;
   padding: 10px 30px;
   margin-bottom: 8px;
+  margin-left: auto;
+  margin-right: auto;
   background-color: white;
   overflow: hidden;
   border:0.5px solid #c1ced7;
