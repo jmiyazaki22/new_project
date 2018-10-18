@@ -89,7 +89,7 @@ header {
 .header-menus {
   float: right;
   padding-right: 20px;
-  width: 170px;
+  min-width: 180px;
 }
 
 .header-menus li {
