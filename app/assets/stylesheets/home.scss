@@ -103,6 +103,7 @@ header {
   float: left;
   font-size: 13px;
   color: white;
+  letter-spacing: 2px;
 }
 
 .header-menus .fa {
@@ -118,6 +119,9 @@ header {
   font-size: 13px;
 }
 
+.header-menus li:hover {
+  font-weight: bold;
+}
 /* top ================================ */
 .top-main {
   padding: 200px 0 100px;
@@ -215,7 +219,7 @@ header {
 }
 
 .form input[type="submit"] {
-  background-color: #007BF9;;
+  background-color: #007BF9;
   color: white;
   cursor: pointer;
   font-weight: 300;
@@ -232,16 +236,36 @@ header {
   clear: both;
 }
 
+input[type="text"]:hover {
+  background-color: #e9ecee;
+}
+
+input[type="text"]:focus {
+  border: 2px solid #54AEFB;
+  background-color: white;
+}
+
+input[type="submit"]:hover {
+  font-weight: bold;
+}
 /* フラッシュ ================================ */
 .flash {
-  padding: 10px 0;
+  padding: 10px 40px;
+  position: absolute;
+  top: 530px;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  -o-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
   color: white;
-  background: rgb(251, 170, 88);
+  background: #707075;
   text-align: center;
   position: absolute;
-  top: 64px;
   z-index: 10;
-  width: 100%;
+  min-width: 300px;
+  max-width: 900px;
   border-radius: 0 0 2px 2px;
-  font-size: 14px;
+  font-size: 12px;
 }

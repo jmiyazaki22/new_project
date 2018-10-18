@@ -1,0 +1,29 @@
+<p class="title">
+  それ以外
+</p>
+<% @tasks_inbox.each do |task| %>
+  <div class="task-edit" id ="task-edit_<%=task.id%>">
+    <%= form_tag("/tasks/#{task.id}/edit", :method => "post") do %>
+      <input class="task-edit-input" name="content" value= "<%= task.content %>">
+      <select class="task-edit-when_to" name="date">
+        <option name="date" value="<%= Date.today %>">今日やる</option>
+        <option name="date" value="<%= Date.tomorrow %>">明日やる</option>
+        <option name="date" value="<%= Date.new(1000, 01, 01) %>" selected>未定</option>
+      </select>
+      <input class="task-add-button_edit" type="submit" value="変更">
+      <div class="x-button">
+        <p>×</p>
+      </div>
+    <% end %>
+  </div>
+  <div class="tasks-index-item">
+    <div class="task-left">
+        <%= link_to("/tasks/#{task.id}/destroy", :method => "post", :style => "text-decoration: none", remote: true) do |f| %>
+          <p>×</p>
+        <% end %>
+    </div>
+    <div class="task-right" >
+      <%= task.content %>
+    </div>
+  </div>
+<% end %>

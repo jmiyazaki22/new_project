@@ -1,24 +1,26 @@
-<div class="main">
+<div class="main" id="main">
   <div class="task-form">
-    <p>タスクを追加</p>
-    <%= form_tag("/tasks/create", :method => "post") do%>
-      <input class="task-input" name="content">
+    <%= form_tag("/tasks/create", :method => "post", remote: true, :id => "task-form") do |f| %>
+    <label class="task-input-title" for="task-input">タスクを追加</label>
+      <input type="text" class="task-input" id="task-input" name="content" autocomplete="off">
         <input class="task-add-button" type="submit" value="追加">
       <div class="task-radio-button">
-        <input type="radio" name="date" value="<%= Date.today %>">今日やる
-        <input type="radio" name="date" value="<%= Date.tomorrow %>">明日やる
-        <input type="radio" name="date" value="<%= Date.new(1000, 01, 01) %>">未定
+        <input type="radio" name="date" id="today" value="<%= Date.today %>">
+        <label class="radio-factor" for="today">今日やる</label>
+        <input type="radio" name="date" id="tomorrow" value="<%= Date.tomorrow %>">
+        <label class="radio-factor" for="tomorrow">明日やる</label>
+        <input type="radio" name="date" id="mitei" value="<%= Date.new(1000, 01, 01) %>">
+        <label class="radio-factor" for="mitei">未定</label>
       </div>
     <% end %>
   </div>
   <div class="tasks-area">
-    <div class="tasks-container">
-      <p class="title">
-        それ以外
-      </p>
+    <div class="tasks-container" id="tasks-container-inbox">
+      <p class="title">それ以外</p>
       <% @tasks_inbox.each do |task| %>
-        <div class="task-edit">
-          <%= form_tag("/tasks/#{task.id}/edit", :method => "post") do%>
+      <div id ="whole-task_<%=task.id%>">
+        <div class="task-edit" id ="task-edit_<%=task.id%>">
+          <%= form_tag("/tasks/#{task.id}/edit", :method => "post", remote: true) do |f| %>
             <input class="task-edit-input" name="content" value= "<%= task.content %>">
             <select class="task-edit-when_to" name="date">
               <option name="date" value="<%= Date.today %>">今日やる</option>
@@ -33,7 +35,7 @@
         </div>
         <div class="tasks-index-item">
           <div class="task-left">
-              <%= link_to("/tasks/#{task.id}/destroy", :method => "post", :style => "text-decoration: none") do %>
+              <%= link_to("/tasks/#{task.id}/destroy", :method => "post", :style => "text-decoration: none", remote: true) do |f| %>
                 <p>×</p>
               <% end %>
           </div>
@@ -41,13 +43,15 @@
             <%= task.content %>
           </div>
         </div>
+      </div>
       <% end %>
     </div>
-    <div class="tasks-container">
+    <div class="tasks-container" id="tasks-container-today">
       <p class="title">今日やること</p>
       <% @tasks_today.each do |task| %>
-        <div class="task-edit">
-          <%= form_tag("/tasks/#{task.id}/edit", :method => "post") do%>
+      <div id ="whole-task_<%=task.id%>">
+        <div class="task-edit" id ="task-edit_<%=task.id%>">
+          <%= form_tag("/tasks/#{task.id}/edit", :method => "post", remote: true) do |f| %>
             <input class="task-edit-input" name="content" value= "<%= task.content =%>">
             <select class="task-edit-when_to" name="date">
               <option name="date" value="<%= Date.today %>" selected>今日やる</option>
@@ -62,7 +66,7 @@
         </div>
         <div class="tasks-index-item">
           <div class="task-left">
-              <%= link_to("/tasks/#{task.id}/destroy", :method => "post", :style => "text-decoration: none") do %>
+              <%= link_to("/tasks/#{task.id}/destroy", :method => "post", :style => "text-decoration: none", remote: true) do |f| %>
                 <p>×</p>
               <% end %>
           </div>
@@ -70,15 +74,17 @@
             <%= task.content %>
           </div>
         </div>
+      </div>
       <% end %>
     </div>
-    <div class="tasks-container">
+    <div class="tasks-container" id="tasks-container-tomorrow">
       <p class="title">
         明日やること
       </p>
-      <% @tasks_tomorrow.each_with_index do |task| %>
-        <div class="task-edit">
-          <%= form_tag("/tasks/#{task.id}/edit", :method => "post") do%>
+      <% @tasks_tomorrow.each do |task| %>
+      <div id ="whole-task_<%=task.id%>">
+        <div class="task-edit" id ="task-edit_<%=task.id%>">
+          <%= form_tag("/tasks/#{task.id}/edit", :method => "post", remote: true) do |f| %>
             <input class="task-edit-input" name="content" value= "<%= task.content %>">
             <select class="task-edit-when_to" name="date">
               <option name="date" value="<%= Date.today %>">今日やる</option>
@@ -93,7 +99,7 @@
         </div>
         <div class="tasks-index-item">
           <div class="task-left">
-            <%= link_to("/tasks/#{task.id}/destroy", :method => "post", :style => "text-decoration: none") do %>
+            <%= link_to("/tasks/#{task.id}/destroy", :method => "post", :style => "text-decoration: none", remote: true) do |f| %>
               <p>×</p>
             <% end %>
           </div>
@@ -101,19 +107,8 @@
             <%= task.content %>
           </div>
         </div>
+      </div>
       <% end %>
     </div>
   </div>
 </div>
-<script>
-  $(".task-left").click(
-    function() {
-      $(this).parent().fadeOut();
-    });
-  $(".task-right").click(function() {
-    $(this).parent().prev().toggle();
-  });
-  $(".x-button").click(function() {
-    $(this).parent().parent().hide()
-  });
-</script>

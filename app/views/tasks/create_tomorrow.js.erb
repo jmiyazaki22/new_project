@@ -1,0 +1,5 @@
+$("#tasks-container-tomorrow").append("<%= escape_javascript(render('tasks/task_part', task: @task)) %>");
+$("#task-form").find(':text').val("");
+$("#tomorrow").attr("checked", false);
+$("header").after('<div class="flash" id="notice">「<%= @task.content %>」を追加しました</div>');
+$('#notice').fadeOut(3000);

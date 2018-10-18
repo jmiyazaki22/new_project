@@ -1,7 +1,8 @@
 .search-form {
+  position: absolute;
   max-width: 300px;
   height: 64px;
-  margin: 0 15px 0 0;
+  margin: 0 0 0 850px;
   padding: 15px 0;
   float: right;
 }
@@ -23,7 +24,7 @@
 
 .search-button {
   background-color: white;
-  color: black;
+  color: #4c4948;
   border-radius: 2px;
   font-size: 14px;
   cursor: pointer;
@@ -31,43 +32,6 @@
   width: 45px;
   height: 20px;
   margin-top: 6px;
-  float: left;
-}
-
-.search-form2 {
-  max-width: 500px;
-  height: 80px;
-  margin: 15px auto 0 auto;
-  background-color: white;
-  border: 1px solid #c1ced7;
-  border-radius: 3px;
-  padding: 10px 30px;
-}
-
-.search-input2 {
-  width: 378px;
-  border: 2px solid #d8dadf;
-  padding: 0px;
-  color: #57575f;
-  font-size: 12px;
-  letter-spacing: 0px;
-  border-radius: 2px;
-  float: left;
-  height: 30px;
-  font-size: 10px;
-  letter-spacing: 2px;
-}
-
-.search-button2 {
-  background-color: #007BF9;
-  color: white;
-  cursor: pointer;
-  font-weight: 300;
-  width: 50px;
-  height: 25px;
-  border-radius: 2px;
-  margin-top: 2px;
-  margin-left: 10px;
   float: left;
 }
 
@@ -99,15 +63,13 @@
 
 .task-input {
   width: 378px;
+  height: 30px;
   border: 2px solid #d8dadf;
   padding: 0px;
-  color: #57575f;
+  color: #4c4948;
+  border-radius: 2px;
   font-size: 12px;
   letter-spacing: 0px;
-  border-radius: 2px;
-  height: 30px;
-  font-size: 10px;
-  letter-spacing: 2px;
   display: block;
 }
 
@@ -148,7 +110,7 @@
   font-weight: 300;
   margin: 15px 0 4px 0;
   font-size: 20px;
-  color: grey;
+  color:  grey;
 }
 
 .tasks-index-item {
@@ -163,14 +125,20 @@
   box-shadow: 0 0 0 0.2px;
 }
 
+.tasks-index-item:hover {
+  font-weight: bold;
+  background-color: #e9ecee;
+}
+
 .task-left {
   width: 10%;
   float: left;
   line-height: 10px;
+  color: #4c4948;
 }
 
 .task-right {
-  cursor: pointer;
+  cursor: text;
   width: 90%;
   font-size: 12px;
   float: left;
@@ -212,6 +180,7 @@
   float: left;
   margin: 7px;
   font-size: 12px;
+  color: #4c4948;
 }
 
 .task-add-button_edit {
@@ -234,4 +203,47 @@
   float: right;
   line-height: 20px;
   margin-left: 310px;
+  color: #4c4948;
+}
+
+.task-input-title {
+  font-size: 13px;
+  color: #4c4948;
+}
+
+.radio-factor {
+  color: #54AEFB;
+  font-size: 10.5px;
+  margin-left: 10px;
+  display: block;		/* ブロックレベル要素化する */
+	float: left;		/* 要素の左寄せ・回り込を指定する */
+	width: 65px;		/* ボックスの横幅を指定する */
+	height: 25px;		/* ボックスの高さを指定する */
+	padding-left: 5px;	/* ボックス内左側の余白を指定する */
+	padding-right: 5px;	/* ボックス内御右側の余白を指定する */
+	text-align: center;	/* テキストのセンタリングを指定する */
+	line-height: 25px;	/* 行の高さを指定する */
+	cursor: pointer;	/* マウスカーソルの形（リンクカーソル）を指定する */
+	border: 1.0px solid #54AEFB;/* ボックスの境界線を実線で指定する */
+	border-radius: 5px;	/* 角丸を指定する */
+}
+
+.radio-factor:hover {
+  color: #54AEFB;
+  font-size: 10.5px;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: #e9ecee;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"]:checked + label {
+  color: #54AEFB;
+  font-weight: bold;
+  font-size: 10.5px;
+  cursor: pointer;
+  background-color: #e9ecee;
 }

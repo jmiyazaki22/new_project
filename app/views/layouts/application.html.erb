@@ -16,6 +16,7 @@
           <a href="/"><img class= "logopic" src="/logo.png" alt="TAG index" border="0"></a>
         <% end %>
       </div>
+
       <ul class="header-menus">
         <% if @current_user %>
           <li>
@@ -39,24 +40,59 @@
       <% if current_page?(:controller => 'tasks', :action => 'index') %>
         <div class="search-form">
           <%= form_tag tasks_index_path, :method => "get" do %>
-            <input class="search-input" name="search" value= <%= params[:search] %>>
+            <input type="text" class="search-input" name="search" autocomplete="off" value= <%= params[:search] %> >
             <input class="search-button" type="submit" value="検索">
           <% end %>
         </div>
       <% end %>
     </header>
-
-    <% if flash[:notice] %>
-      <div class="flash" id="notice">
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
-
+    <div id="flash-box">
+    </div>
     <%= yield %>
   </body>
+
   <script>
     $(document).ready(function() {
       $('#notice').fadeOut(2500);
     });
-  </script>
+    $("#tasks-container-inbox").on("click",".x-button", function() {
+      $(this).parent().parent().hide();
+    });
+    $("#tasks-container-inbox").on("click",".task-left", function() {
+        $(this).parent().fadeOut();
+      });
+    $("#tasks-container-inbox").on("click",".task-right", function() {
+      $(this).parent().prev().show();
+      var v = $(this).parent().prev().find(".task-edit-input").val();
+      $(this).parent().prev().find(".task-edit-input").val("");
+      $(this).parent().prev().find(".task-edit-input").focus().val(v);
+    });
+    $("#tasks-container-today").on("click",".x-button", function() {
+      $(this).parent().parent().hide();
+    });
+    $("#tasks-container-today").on("click",".task-left", function() {
+        $(this).parent().fadeOut();
+      });
+    $("#tasks-container-today").on("click",".task-right", function() {
+      $(this).parent().prev().show();
+      var v = $(this).parent().prev().find(".task-edit-input").val();
+      $(this).parent().prev().find(".task-edit-input").val("");
+      $(this).parent().prev().find(".task-edit-input").focus().val(v);
+    });
+    $("#tasks-container-today").on("click",".x-button", function() {
+      $(this).parent().parent().hide();
+    });
+    $("#tasks-container-tomorrow").on("click",".task-left", function() {
+        $(this).parent().fadeOut();
+      });
+    $("#tasks-container-tomorrow").on("click",".task-right", function() {
+      $(this).parent().prev().show();
+      var v = $(this).parent().prev().find(".task-edit-input").val();
+      $(this).parent().prev().find(".task-edit-input").val("");
+      $(this).parent().prev().find(".task-edit-input").focus().val(v);
+    });
+    $("#tasks-container-tomorrow").on("click",".x-button", function() {
+      $(this).parent().parent().hide();
+    });
+    </script>
 </html>

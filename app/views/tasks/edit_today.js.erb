@@ -1,0 +1,4 @@
+$("#whole-task_<%=@task.id%>").remove();
+$("#tasks-container-today").append("<%= escape_javascript(render('tasks/task_part', task: @task)) %>");
+$("header").after('<div class="flash" id="notice">「<%= @task.content %>」を編集しました</div>');
+$('#notice').fadeOut(3000);
