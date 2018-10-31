@@ -1,7 +1,7 @@
 <div id ="whole-task_<%=task.id%>">
   <div class="task-edit" id="#task-edit_<%=task.id%>">
     <%= form_tag("/tasks/#{task.id}/edit", :method => "post", remote: true) do |f| %>
-      <input class="task-edit-input" name="content" value= "<%= task.content %>">
+      <input type="text" class="task-edit-input" name="content" value= "<%= task.content %>">
       <select class="task-edit-when_to" name="date">
         <% if task.when_to == Date.new(1000, 01, 01)%>
           <option name="date" value="<%= Date.today %>">今日やる</option>
@@ -18,11 +18,10 @@
         <% end %>
       </select>
       <input class="task-add-button_edit" type="submit" value="変更">
-
+      <div class="x-button">
+        <p>×</p>
+      </div>
     <% end %>
-    <div class="x-button">
-      <p>×</p>
-    </div>
   </div>
   <div class="tasks-index-item" id="tasks-index-item">
     <div class="task-left">

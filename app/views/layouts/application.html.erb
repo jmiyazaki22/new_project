@@ -17,7 +17,6 @@
           <a href="/"><img class= "logopic" src="/logo.png" alt="TAG index" border="0"></a>
         <% end %>
       </div>
-
       <ul class="header-menus">
         <% if @current_user %>
           <li>
@@ -56,13 +55,13 @@
     });
     $("#tasks-container-inbox").on("click",".x-button", function() {
       $(this).parent().parent().hide();
-      $(this).parent().parent().next().show();
+      $(this).parent().parent().next().fadeIn();
     });
     $("#tasks-container-inbox").on("click",".task-left", function() {
         $(this).parent().fadeOut();
       });
     $("#tasks-container-inbox").on("click",".task-right", function() {
-      $(this).parent().prev().show();
+      $(this).parent().prev().fadeIn();
       $(this).parent().hide();
       var v = $(this).parent().prev().find(".task-edit-input").val();
       $(this).parent().prev().find(".task-edit-input").val("");
@@ -70,13 +69,13 @@
     });
     $("#tasks-container-today").on("click",".x-button", function() {
       $(this).parent().parent().hide();
-      $(this).parent().parent().next().show();
+      $(this).parent().parent().next().fadeIn();
     });
     $("#tasks-container-today").on("click",".task-left", function() {
         $(this).parent().fadeOut();
       });
     $("#tasks-container-today").on("click",".task-right", function() {
-      $(this).parent().prev().show();
+      $(this).parent().prev().fadeIn();
       $(this).parent().hide();
       var v = $(this).parent().prev().find(".task-edit-input").val();
       $(this).parent().prev().find(".task-edit-input").val("");
@@ -84,13 +83,13 @@
     });
     $("#tasks-container-today").on("click",".x-button", function() {
       $(this).parent().parent().hide();
-      $(this).parent().parent().next().show();
+      $(this).parent().parent().next().fadeIn();
     });
     $("#tasks-container-tomorrow").on("click",".task-left", function() {
         $(this).parent().fadeOut();
       });
     $("#tasks-container-tomorrow").on("click",".task-right", function() {
-      $(this).parent().prev().show();
+      $(this).parent().prev().fadeIn();
       $(this).parent().hide();
       var v = $(this).parent().prev().find(".task-edit-input").val();
       $(this).parent().prev().find(".task-edit-input").val("");
@@ -98,7 +97,10 @@
     });
     $("#tasks-container-tomorrow").on("click",".x-button", function() {
       $(this).parent().parent().hide();
-      $(this).parent().parent().next().show();
+      $(this).parent().parent().next().fadeIn();
     });
+    $('#hamburger').click( function() {
+      $(this).toggleClass('animate');
+    })
     </script>
 </html>

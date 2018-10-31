@@ -21,7 +21,7 @@
       <div id ="whole-task_<%=task.id%>">
         <div class="task-edit" id ="task-edit_<%=task.id%>">
           <%= form_tag("/tasks/#{task.id}/edit", :method => "post", remote: true) do |f| %>
-            <input class="task-edit-input" name="content" value= "<%= task.content %>">
+            <input type="text" class="task-edit-input" name="content" value= "<%= task.content %>">
             <select class="task-edit-when_to" name="date">
               <option name="date" value="<%= Date.today %>">今日やる</option>
               <option name="date" value="<%= Date.tomorrow %>">明日やる</option>
@@ -52,7 +52,7 @@
       <div id ="whole-task_<%=task.id%>">
         <div class="task-edit" id ="task-edit_<%=task.id%>">
           <%= form_tag("/tasks/#{task.id}/edit", :method => "post", remote: true) do |f| %>
-            <input class="task-edit-input" name="content" value= "<%= task.content =%>">
+            <input type="text" class="task-edit-input" name="content" value= "<%= task.content =%>">
             <select class="task-edit-when_to" name="date">
               <option name="date" value="<%= Date.today %>" selected>今日やる</option>
               <option name="date" value="<%= Date.tomorrow %>">明日やる</option>
@@ -85,7 +85,7 @@
       <div id ="whole-task_<%=task.id%>">
         <div class="task-edit" id ="task-edit_<%=task.id%>">
           <%= form_tag("/tasks/#{task.id}/edit", :method => "post", remote: true) do |f| %>
-            <input class="task-edit-input" name="content" value= "<%= task.content %>">
+            <input type="text" class="task-edit-input" name="content" value= "<%= task.content %>">
             <select class="task-edit-when_to" name="date">
               <option name="date" value="<%= Date.today %>">今日やる</option>
               <option name="date" value="<%= Date.tomorrow %>" selected>明日やる</option>
@@ -100,7 +100,9 @@
         <div class="tasks-index-item">
           <div class="task-left">
             <%= link_to("/tasks/#{task.id}/destroy", :method => "post", :style => "text-decoration: none", remote: true) do |f| %>
-              <p>×</p>
+              <div id="x-button">
+                <label for="x-button"></label>
+              </div>
             <% end %>
           </div>
           <div class="task-right">
